@@ -8,9 +8,40 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReader 
-{
-	public static void getDataFromCSVFile(String csvFilePath)
+import et3.java.projet.Bibliotheque;
+import et3.java.projet.Document;
+import et3.java.projet.Livre;
+
+public class FileReader {
+
+/*
+	static ArrayList<Document> collecA = new ArrayList<Document>();
+	static ArrayList<Document> collecE = new ArrayList<Document>();
+	static ArrayList<Document> collecJ = new ArrayList<Document>();
+	static ArrayList<Document> collecO = new ArrayList<Document>();
+	static ArrayList<Document> collecS = new ArrayList<Document>();
+	
+	public static ArrayList<Document> getCollecA() {
+		return collecA;
+	}
+
+	public static ArrayList<Document> getCollecE() {
+		return collecE;
+	}
+
+	public static ArrayList<Document> getCollecJ() {
+		return collecJ;
+	}
+
+	public static ArrayList<Document> getCollecO() {
+		return collecO;
+	}
+
+	public static ArrayList<Document> getCollecS() {
+		return collecS;
+	}*/
+
+	public static void getDataFromCSVFile(String csvFilePath, ArrayList<ArrayList> collec)
 	{
         String line = "";
         String[] data = null;
@@ -33,6 +64,7 @@ public class FileReader
         int numberCopyJeanPierreMelville;
         int numberCopyOscarWilde;
         int numberCopySaintSimon;
+        
         
         try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(csvFilePath), StandardCharsets.ISO_8859_1)) 
         {
@@ -138,7 +170,7 @@ public class FileReader
             		//Get the number of copy in the library "Edmond Rostand"
             		try
             		{
-            			numberCopyEdmondRostand = Integer.parseInt(data[11]);
+            			numberCopyEdmondRostand = Integer.parseInt(data[12]);
             		}
             		catch (Exception exception)
             		{
@@ -148,7 +180,7 @@ public class FileReader
             		//Get the number of copy in the library "Jean-Pierre Melville"
             		try
             		{
-            			numberCopyJeanPierreMelville = Integer.parseInt(data[11]);
+            			numberCopyJeanPierreMelville = Integer.parseInt(data[13]);
             		}
             		catch (Exception exception)
             		{
@@ -158,7 +190,7 @@ public class FileReader
             		//Get the number of copy in the library "Oscar Wilde"
             		try
             		{
-            			numberCopyOscarWilde = Integer.parseInt(data[11]);
+            			numberCopyOscarWilde = Integer.parseInt(data[14]);
             		}
             		catch (Exception exception)
             		{
@@ -168,7 +200,7 @@ public class FileReader
             		//Get the number of copy in the library "Saint-Simon"
             		try
             		{
-            			numberCopySaintSimon = Integer.parseInt(data[11]);
+            			numberCopySaintSimon = Integer.parseInt(data[15]);
             		}
             		catch (Exception exception)
             		{
@@ -176,6 +208,70 @@ public class FileReader
             		}
                 
                 //TODO Do something with data
+            		
+            		ArrayList ajoutColonne = new ArrayList();
+            		
+            		ajoutColonne.add(""+(String)isbn);
+            		ajoutColonne.add(""+(String)ean);
+            		ajoutColonne.add(""+(String)title);
+            		ajoutColonne.add(""+(String)publisher);
+            		
+            		try {
+            			date=date.replaceAll("[^0-9]", "");
+            		}catch(Exception e) {
+            			date=""+Integer.MIN_VALUE;
+            		}
+            		if (date.equals("")) date = ""+Integer.MIN_VALUE;
+            		
+            		ajoutColonne.add(""+(String)date);
+            		ajoutColonne.add(""+(String)seriesTitle);
+            		ajoutColonne.add(""+seriesNumber);
+            		ajoutColonne.add(""+(String)authorName);
+            		ajoutColonne.add(""+(String)authorSurname);
+            		ajoutColonne.add(""+(String)type);
+            		ajoutColonne.add(""+totalCopies);
+            		ajoutColonne.add(""+numberCopyAimeCesaire);
+            		ajoutColonne.add(""+numberCopyEdmondRostand);
+            		ajoutColonne.add(""+numberCopyJeanPierreMelville);
+            		ajoutColonne.add(""+numberCopyOscarWilde);
+            		ajoutColonne.add(""+numberCopySaintSimon);
+            		
+            		collec.add(ajoutColonne);
+            		
+            		
+            		
+            		
+            		
+            		
+            		
+            	/*	//Pour chaque ligne lue on crée un document
+            		
+            		Document doc = new Document(isbn,ean,title,publisher,date,seriesTitle,seriesNumber,authorSurname,authorName,type,totalCopies,numberCopyAimeCesaire,
+            				numberCopyEdmondRostand,numberCopyJeanPierreMelville,numberCopyOscarWilde,numberCopySaintSimon);
+            		
+            		//On crée un livre pour récupérer l'ISBN
+            		
+            		if (numberCopyAimeCesaire>0) {
+            			collecA.add(doc);
+            		}
+            		
+            		if (numberCopyEdmondRostand>0) {
+            			collecE.add(doc);
+            		}
+            		
+            		if (numberCopyJeanPierreMelville>0) {
+            			collecJ.add(doc);
+            		}
+            		
+            		if (numberCopyOscarWilde>0) {
+            			collecO.add(doc);
+            		}
+            		
+            		if (numberCopySaintSimon>0) {
+            			collecS.add(doc);
+            		}
+            		*/
+            		
             	
                 System.out.println(
                 		isbn + ";" +
@@ -195,7 +291,10 @@ public class FileReader
                 		numberCopyOscarWilde + ";" +
                 		numberCopySaintSimon);
             }
-        } 
+        }
+		
+
+	
         catch (IOException exception) 
         {
             System.err.println(exception);
