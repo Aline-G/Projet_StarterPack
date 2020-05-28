@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/et3/java/projet/Bibliotheque.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/et3/java/projet/Reseau.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/et3/java/projet/Serie.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/et3/java/projet/data/FileReader.java" charset="windows-1252" />
   </component>
 </project>

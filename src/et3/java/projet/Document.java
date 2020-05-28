@@ -35,6 +35,9 @@ public abstract class Document {
 			return serieTitle;
 		}
 		
+		public String getTitle() {
+			return title;
+		}
 		public String getAuthorSurname() {
 			return authorSurname;
 		}
@@ -45,6 +48,14 @@ public abstract class Document {
 
 		public String getDate() {
 			return date;
+		}
+		
+		public String getPublisher() {
+			return publisher;
+		}
+		
+		public String getSerieNumber() {
+			return serieNumber;
 		}
 		
 

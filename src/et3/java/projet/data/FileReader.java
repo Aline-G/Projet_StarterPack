@@ -41,7 +41,7 @@ public class FileReader {
 		return collecS;
 	}*/
 
-	public static void getDataFromCSVFile(String csvFilePath, ArrayList<ArrayList> collec)
+	public static void getDataFromCSVFile(String csvFilePath, ArrayList<ArrayList<String>> collec)
 	{
         String line = "";
         String[] data = null;
@@ -238,41 +238,7 @@ public class FileReader {
             		
             		collec.add(ajoutColonne);
             		
-            		
-            		
-            		
-            		
-            		
-            		
-            	/*	//Pour chaque ligne lue on crée un document
-            		
-            		Document doc = new Document(isbn,ean,title,publisher,date,seriesTitle,seriesNumber,authorSurname,authorName,type,totalCopies,numberCopyAimeCesaire,
-            				numberCopyEdmondRostand,numberCopyJeanPierreMelville,numberCopyOscarWilde,numberCopySaintSimon);
-            		
-            		//On crée un livre pour récupérer l'ISBN
-            		
-            		if (numberCopyAimeCesaire>0) {
-            			collecA.add(doc);
-            		}
-            		
-            		if (numberCopyEdmondRostand>0) {
-            			collecE.add(doc);
-            		}
-            		
-            		if (numberCopyJeanPierreMelville>0) {
-            			collecJ.add(doc);
-            		}
-            		
-            		if (numberCopyOscarWilde>0) {
-            			collecO.add(doc);
-            		}
-            		
-            		if (numberCopySaintSimon>0) {
-            			collecS.add(doc);
-            		}
-            		*/
-            		
-            	
+            	/*
                 System.out.println(
                 		isbn + ";" +
                 		ean + ";" +
@@ -290,6 +256,7 @@ public class FileReader {
                 		numberCopyJeanPierreMelville + ";" +
                 		numberCopyOscarWilde + ";" +
                 		numberCopySaintSimon);
+                		*/
             }
         }
 		

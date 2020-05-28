@@ -1,24 +1,25 @@
 package et3.java.projet;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 
 public class Utilisateur {
 	
-	private Bibliotheque bibli;
+	
 	
 	//pour ajouter un utilisateur
 	
 	
 	//Variables
 	
-	private HashMap <String, Document> listeEmprunts;;
+	public HashMap <String, Document> listeEmprunts;
 	private int quota;
 	private String nom;
 	private String prenom;
 	private int idUser;
 	private int compteur=0;
+	private Bibliotheque bibli;
 	
 	//Constructeurs
 	
@@ -55,59 +56,6 @@ public class Utilisateur {
 	public void setQuota(int quota) {
 		this.quota = quota;
 	}
-
-			
-	//Méthodes
 	
-	
-	
-	public boolean emprunter (int limiteQuota, int idBiblio, Document doc) {
-		if(this.getQuota()<=limiteQuota & estDisponible(doc)) {
-			switch (idBiblio) {
-			  case 1:
-			    doc.setNumberCopyAimeCesaire(doc.getNumberCopyAimeCesaire()-1);
-			    break;
-			  case 2:
-				  doc.setNumberCopyEdmondRostand(doc.getNumberCopyEdmondRostand()-1);
-			    break;
-			  case 3:
-				  doc.setNumberCopyJeanPierreMelville(doc.getNumberCopyJeanPierreMelville()-1);
-			    break;
-			  case 4:
-				  doc.setNumberCopyOscarWilde(doc.getNumberCopyOscarWilde()-1);
-			    break;
-			  case 5:
-				  doc.setNumberCopySaintSimon(doc.getNumberCopySaintSimon()-1);
-			    break;
-			}
-			this.setQuota(this.getQuota()-1);
-			return true;
-		}else {
-			return false;
-		}
-		
-	}
-	
-
-	public void rendre (int idBiblio, Document doc) {
-		switch (idBiblio) {
-		 case 1:
-			  doc.setNumberCopyAimeCesaire(doc.getNumberCopyAimeCesaire()+1);
-			  break;
-		 case 2:
-			  doc.setNumberCopyEdmondRostand(doc.getNumberCopyEdmondRostand()+1);
-			  break;
-		 case 3:
-			  doc.setNumberCopyJeanPierreMelville(doc.getNumberCopyJeanPierreMelville()+1);
-			  break;
-		 case 4:
-			  doc.setNumberCopyOscarWilde(doc.getNumberCopyOscarWilde()+1);
-			  break;
-		 case 5:
-		  	  doc.setNumberCopySaintSimon(doc.getNumberCopySaintSimon()+1);
-			  break;
-		}
-		this.setQuota(this.getQuota()+1);
-	}
 }
 

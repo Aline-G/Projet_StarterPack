@@ -1,6 +1,10 @@
 package et3.java.projet;
 
 public class Livre extends Document {
+	
+
+	
+
 
 	//Variables
 	private String ISBN;
