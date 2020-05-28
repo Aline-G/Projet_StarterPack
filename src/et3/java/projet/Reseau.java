@@ -45,8 +45,8 @@ public class Reseau {
 		int date= 4;
 		int seriesTitle = 5;
 		int seriesNumber = 6;
-		int authorname = 7;
-		int authorsurname =8;
+		int authorName = 7;
+		int authorSurname =8;
 		int type = 9;
 		int totalcopies =10;
 		int numberOfcopyAimeCesaire = 11;
@@ -66,8 +66,33 @@ public class Reseau {
 			if(!doc.getEAN().equals("") || !doc.getISBN().equals("")) {
 				
 				if(collec.get(i).get(type).contains("Livre")) {
-					doc = new Livre(collec.get(i).get(isbn),collec.get(i).get(ean),collec.get(i).get(title),publisher,date,String serieTitle,serieNumber,authorSurname,authorName);
+					doc = new Livre(collec.get(i).get(isbn),collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
 				}
+				if(collec.get(i).get(type).contains("Disque")) {
+					doc = new CD(collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+				if(collec.get(i).get(type).contains("Bande")) {
+					doc = new BandeDessinee(collec.get(i).get(isbn),collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+				if(collec.get(i).get(type).contains("Carte")) {
+					doc = new Carte(collec.get(i).get(isbn),collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+				if(collec.get(i).get(type).contains("Jeux Video")) {
+					doc = new JeuVideo(collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+				if(collec.get(i).get(type).contains("Partition")) {
+					doc = new Partition(collec.get(i).get(isbn),collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+				if(collec.get(i).get(type).contains("Revue")) {
+					doc = new Revue(collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+				if(collec.get(i).get(type).contains("Vinyle")) {
+					doc = new Vinyle(collec.get(i).get(ean),collec.get(i).get(title),collec.get(i).get(publisher),collec.get(i).get(date),collec.get(i).get(seriesTitle),collec.get(i).get(seriesNumber),collec.get(i).get(authorSurname),collec.get(i).get(authorName));
+				}
+
+
+
+
 				// TODO
 				//Ajouter les copies à la bibliotheque
 			}
