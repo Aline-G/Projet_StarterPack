@@ -33,6 +33,7 @@ public class Menu {
                     break;
                 case "4":
                     menuUtilisateur(entree,reseau);
+                    break;
                 case "5":
                     System.exit(0);
                     break;
@@ -196,23 +197,40 @@ public class Menu {
                     String ean = sc.nextLine();
                     System.out.println("Saisissez le nom de la votre bibliotheque :");
                     String bibli = sc.nextLine();
-                    System.out.println("Saisissez votre idUser :");
-                    String id = sc.nextLine();
+                    System.out.println("Saisissez votre id :");
+                    int id = Integer.parseInt(sc.nextLine());
 
                     for (String key : res.listeBibli.keySet()) {
                         if (res.listeBibli.get(key).getNom().equals(bibli)) {
                             for (String cle : res.listeBibli.get(key).listeUtilisateur.keySet()) {
-                                if (res.listeBibli.get(key).listeUtilisateur.get(cle).getNom().equals(id)) {
+                                if (res.listeBibli.get(key).listeUtilisateur.get(cle).getIdUser() == id) {
                                     res.listeBibli.get(key).emprunter(res.listeBibli.get(key).listeUtilisateur.get(cle),res.listeBibli.get(key).listeDocs.get(ean));
+                                    System.out.println("Vous venez d'emprunter un document");
+                                    System.out.println("Le nombre d'exemplaires restants dans cette bibliothèque est : "+ res.listeBibli.get(key).listeExemplaires.get(ean));
                                 }
                             }
                         }
                     }
                     break;
                 case "2":
-                    System.out.println("Saisissez un ISBN :");
-                    String isbn = sc.nextLine();
-                    res.rechercheISBN(isbn);
+                    System.out.println("Saisissez l'ean du doc à rendre :");
+                    String EAN = sc.nextLine();
+                    System.out.println("Saisissez le nom de la votre bibliotheque :");
+                    String biblio = sc.nextLine();
+                    System.out.println("Saisissez votre id :");
+                    int iduser = Integer.parseInt(sc.nextLine());
+
+                    for (String key : res.listeBibli.keySet()) {
+                        if (res.listeBibli.get(key).getNom().equals(biblio)) {
+                            for (String cle : res.listeBibli.get(key).listeUtilisateur.keySet()) {
+                                if (res.listeBibli.get(key).listeUtilisateur.get(cle).getIdUser() == iduser) {
+                                    res.listeBibli.get(key).rendre(res.listeBibli.get(key).listeUtilisateur.get(cle),res.listeBibli.get(key).listeDocs.get(EAN));
+                                    System.out.println("Vous venez de rendre un document");
+                                    System.out.println("Le nombre d'exemplaires mis à jour dans cette bibliothèque est : "+ res.listeBibli.get(key).listeExemplaires.get(EAN));
+                                }
+                            }
+                        }
+                    }
                     break;
             }
             break;

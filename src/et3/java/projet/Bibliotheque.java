@@ -136,7 +136,8 @@ public class Bibliotheque {
 		*/
 	public void ajoutUtilisateur (int quota,String nom,String prenom){
 		Utilisateur User= new Utilisateur (quota,nom,prenom,this);
-		listeUtilisateur.put(nom+prenom+User.getIdUser(),User); 
+		listeUtilisateur.put(nom+prenom+User.getIdUser(),User);
+		System.out.println(User.getIdUser());
 	}
 	
 	/**
