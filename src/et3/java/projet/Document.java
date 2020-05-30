@@ -65,6 +65,7 @@ public abstract class Document {
 		
 		public abstract String getISBN();
 		
+		
 		public String getKey() {
 			if(!EAN.equals("")){
 				return EAN;

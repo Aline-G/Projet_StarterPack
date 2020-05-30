@@ -7,8 +7,7 @@ public class Vinyle extends Document {
     }
 
     public String getISBN() {
-        String ISBN="";
-        return ISBN;
+        return "";
     }
 
 }
