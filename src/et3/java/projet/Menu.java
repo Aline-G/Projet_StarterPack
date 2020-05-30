@@ -5,6 +5,16 @@ import java.util.Scanner;
 
 public class Menu {
 
+    /**
+     Affiche le menu Principal
+     * et propose 5 choix soit consulter soit ajouter soit rechercher soit accéder au menu utilisateur
+     * ou encore quitter totalment le menu
+     * Dans chaque cas, le menu appelle les fonctions des différentes créées ci-après qui affiche les
+     * soous-menus
+     *
+     * @param  documents qui est un ensemble de document nécessaire à la création d'un réseau
+     *
+     */
     public static void MenuPrincipal(ArrayList<ArrayList<String>> documents) {
         Reseau reseau = new Reseau(documents);
         Scanner entree = new Scanner(System.in);
@@ -40,8 +50,18 @@ public class Menu {
             }
         }
     }
-
-    private static void menuConsulter(Scanner entree, Reseau reseau) {
+    /**
+     Affiche le menu Consulter
+     * et propose 3 choix soit consulter les documents de tous le réseau soit ceux d'une
+     * bibliotheque particuliere ou encore le nombre de documents de chaque type dans le
+     * réseau sur un intervalle de temps donné
+     * Dans chaque cas, le menu appelle les fonctions des différentes classes concernées
+     *
+     * @param  entree qui prend en compte si on appuie sur la touche entrée
+     * @param  res le reseau de bibliotheque créé lors de l'appel du menu principal dans le main
+     *
+     */
+    private static void menuConsulter(Scanner entree, Reseau res) {
         while (true) {
             System.out.println("----- Menu Consulter -----");
             System.out.println("");
@@ -54,9 +74,9 @@ public class Menu {
                 case "1":
                     System.out.println("Entrez le nom de la bibliotheque: ");
                     String bibli = sc.nextLine();
-                    for (String key : reseau.listeBibli.keySet()) {
-                        if (reseau.listeBibli.get(key).getNom().equals(bibli)) {
-                            reseau.listeBibli.get(key).consulterDocument();
+                    for (String key : res.listeBibli.keySet()) {
+                        if (res.listeBibli.get(key).getNom().equals(bibli)) {
+                            res.listeBibli.get(key).consulterDocument();
                         } else {
                             System.out.println("Le nom de bibliotheque saisi n'existe pas");
                         }
@@ -67,11 +87,11 @@ public class Menu {
                     int datedeb = Integer.parseInt(sc.nextLine());
                     System.out.println("Saisissez une date de fin :");
                     int datefin = Integer.parseInt(sc.nextLine());
-                    reseau.nbDocumentsTypes(datedeb, datefin);
+                    res.nbDocumentsTypes(datedeb, datefin);
                     //ça apparait 5 fois car c'est pour chaque bibliotheque
                     break;
                 case "3":
-                    reseau.consulterDocument();
+                    res.consulterDocument();
                     break;
             }
             break;
@@ -79,7 +99,15 @@ public class Menu {
         return;
     }
 
-
+    /**
+     Affiche le menu Ajouter
+     * et propose 3 choix soit ajouter un document soit un utilisateur soit une bibliotheque
+     * Dans chaque cas, le menu appelle les fonctions des différentes classes concernées
+     *
+     * @param  entree qui prend en compte si on appuie sur la touche entrée
+     * @param  res le reseau de bibliotheque créé lors de l'appel du menu principal dans le main
+     *
+     */
     private static void menuAjouter(Scanner entree, Reseau res) {
         while (true) {
             System.out.println("----- Menu Ajouter -----");
@@ -150,6 +178,15 @@ public class Menu {
         return;
     }
 
+    /**
+     Affiche le menu Rechercher
+     * et propose 3 choix soit recherche par ISBN soit par auteur soit par EAN
+     * Dans chaque cas, le menu appelle les fonctions des différentes classes concernées
+     *
+     * @param  entree qui prend en compte si on appuie sur la touche entrée
+     * @param  res le reseau de bibliotheque créé lors de l'appel du menu principal dans le main
+     *
+     */
     private static void menuRechercher(Scanner entree, Reseau res) {
         while (true) {
             System.out.println("----- Menu Rechercher dans le reseau -----");
@@ -182,6 +219,15 @@ public class Menu {
         }
         return;
     }
+    /**
+     Affiche le menu utilisateur
+     * et propose deux choix soit rendre soit emprunter un document
+     *Dans chaque cas, le menu appelle les fonctions des différentes classes concernées
+     *
+     * @param  entree qui prend en compte si on appuie sur la touche entrée
+     * @param  res le reseau de bibliotheque créé lors de l'appel du menu principal dans le main
+     *
+     */
     private static void menuUtilisateur(Scanner entree, Reseau res){
         while (true) {
             System.out.println("----- Menu Utilisateur -----");
@@ -206,7 +252,7 @@ public class Menu {
                                 if (res.listeBibli.get(key).listeUtilisateur.get(cle).getIdUser() == id) {
                                     res.listeBibli.get(key).emprunter(res.listeBibli.get(key).listeUtilisateur.get(cle),res.listeBibli.get(key).listeDocs.get(ean));
                                     System.out.println("Vous venez d'emprunter un document");
-                                    System.out.println("Le nombre d'exemplaires restants dans cette bibliothèque est : "+ res.listeBibli.get(key).listeExemplaires.get(ean));
+                                    System.out.println("Le nombre d'exemplaires restants dans cette bibliotheque est : "+ res.listeBibli.get(key).listeExemplaires.get(ean));
                                 }
                             }
                         }
@@ -226,7 +272,7 @@ public class Menu {
                                 if (res.listeBibli.get(key).listeUtilisateur.get(cle).getIdUser() == iduser) {
                                     res.listeBibli.get(key).rendre(res.listeBibli.get(key).listeUtilisateur.get(cle),res.listeBibli.get(key).listeDocs.get(EAN));
                                     System.out.println("Vous venez de rendre un document");
-                                    System.out.println("Le nombre d'exemplaires mis à jour dans cette bibliothèque est : "+ res.listeBibli.get(key).listeExemplaires.get(EAN));
+                                    System.out.println("Le nombre d'exemplaires mis à jour dans cette bibliotheque est : "+ res.listeBibli.get(key).listeExemplaires.get(EAN));
                                 }
                             }
                         }
