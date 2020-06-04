@@ -14,33 +14,6 @@ import et3.java.projet.Livre;
 
 public class FileReader {
 
-/*
-	static ArrayList<Document> collecA = new ArrayList<Document>();
-	static ArrayList<Document> collecE = new ArrayList<Document>();
-	static ArrayList<Document> collecJ = new ArrayList<Document>();
-	static ArrayList<Document> collecO = new ArrayList<Document>();
-	static ArrayList<Document> collecS = new ArrayList<Document>();
-	
-	public static ArrayList<Document> getCollecA() {
-		return collecA;
-	}
-
-	public static ArrayList<Document> getCollecE() {
-		return collecE;
-	}
-
-	public static ArrayList<Document> getCollecJ() {
-		return collecJ;
-	}
-
-	public static ArrayList<Document> getCollecO() {
-		return collecO;
-	}
-
-	public static ArrayList<Document> getCollecS() {
-		return collecS;
-	}*/
-
 	public static void getDataFromCSVFile(String csvFilePath, ArrayList<ArrayList<String>> collec)
 	{
         String line = "";

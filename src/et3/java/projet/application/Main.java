@@ -114,7 +114,5 @@ public class Main
 		{
 			System.out.println("[Main] You should enter the CSV file path as a parameters.");
 		}
-		
-		Reseau res = new Reseau(docs);
 	}
 }

@@ -241,7 +241,7 @@ public class Menu {
 
                     System.out.println("Saisissez l'ean du doc à emprunter :");
                     String ean = sc.nextLine();
-                    System.out.println("Saisissez le nom de la votre bibliotheque :");
+                    System.out.println("Saisissez le nom de votre bibliotheque :");
                     String bibli = sc.nextLine();
                     System.out.println("Saisissez votre id :");
                     int id = Integer.parseInt(sc.nextLine());
@@ -261,7 +261,7 @@ public class Menu {
                 case "2":
                     System.out.println("Saisissez l'ean du doc à rendre :");
                     String EAN = sc.nextLine();
-                    System.out.println("Saisissez le nom de la votre bibliotheque :");
+                    System.out.println("Saisissez le nom de votre bibliotheque :");
                     String biblio = sc.nextLine();
                     System.out.println("Saisissez votre id :");
                     int iduser = Integer.parseInt(sc.nextLine());
